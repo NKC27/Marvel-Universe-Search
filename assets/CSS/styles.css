@@ -1,0 +1,66 @@
+
+@font-face { font-family: marvel-font; 
+    src: url("/font/marvel-font.otf"); 
+} 
+
+h3, h4, h5 {
+    font-family: "marvel-font";
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button {
+    font-family: "marvel-font";
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: larger !important;
+}
+
+
+
+.red {
+    background-color: #ED1D24 !important;
+}
+
+
+.section-search input {
+    padding: 5px !important;
+    font-size: 18px !important;
+    width: 90% !important;
+    border: #f6f6f6 3px solid !important;
+    border-radius: 30px !important;
+}
+
+
+.biography-card {
+    width: 300%;
+    padding-right: 50%;
+    margin-left: 20px;
+}
+
+#stats-card {
+    width: 100%;
+    padding-left: 25%;
+    margin-left: 20px;
+    content: align;
+    
+}
+
+.center-block {
+    display: inline-block;
+}
+
+.card-title {
+    font-family: "marvel-font";
+    letter-spacing: 1px;
+    color: #ED1D24;
+
+}
+
+
+
+.brand-logo {
+    font-family: "marvel-font";
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
