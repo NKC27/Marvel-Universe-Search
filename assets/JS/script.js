@@ -16,8 +16,8 @@ var autoComplete = document.querySelector(".autocomplete");
 M.Autocomplete.init(autoComplete, {
   data: {
     Avengers: null,
-    "Spider-Man": null,
-    "Iron-man": null,
+    "Spider Man": null,
+    "Iron man": null,
     "Black Panther": null,
     Deadpool: null,
     "Captain America": null,
@@ -52,26 +52,27 @@ var heroName = document.getElementById("#hero-name");
 // fetch all information then console log to see it!
 function getCharacterInfo() {
   var URLforCharacters =
-    "https://gateway.marvel.com/v1/public/characters?name=Hulk&apikey=" +
+    "https://gateway.marvel.com/v1/public/characters?name=" +
+    characterSearched.value +
+    "&apikey=" +
     APIkey;
 
   fetch(URLforCharacters)
     .then(function (res) {
       return res.json();
     })
-    .then(function (data) {
+    .then(function (res) {
       // Testing to see what data console logs
-      console.log(data);
+      console.log(res);
     });
 }
-
-getCharacterInfo();
 
 // This function will get the value of the users search
 function getUserSearch() {
   // If the user entered a value..
   if (characterSearched.value) {
     // Proceed with this function.
+    getCharacterInfo();
 
     console.log(characterSearched.value.trim());
   } else {
