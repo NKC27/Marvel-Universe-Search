@@ -69,7 +69,7 @@ function getCharacterInfo() {
   });
 }
 
-// Populate Description using this function
+// Populate Description & Image using this function
 function displayDescription(responseData) {
   // Remove 'Hide' Attribute
   // 'classList' is a property of JavaScript and using .remove will allow us to
@@ -78,11 +78,9 @@ function displayDescription(responseData) {
 
   // Create a variable for the information we want to use.
   var marvelDescr = responseData.data.results[0].description;
-
   var marvelImage = responseData.data.results[0].thumbnail.path;
 
   // Amend this to a paragraph that we want to display to the user.
-  console.log(marvelDescr);
   var ourDescription = document.createElement("p");
   ourDescription.textContent = marvelDescr;
 
@@ -96,9 +94,15 @@ function displayDescription(responseData) {
   // Set Attributes for paragraph here ourDescription.setAttributes(djhbajdak)
 }
 
+// UNFINISHED LINKS FUNCTION
+function displayLinks(responseData) {
+  var wikiLink = responseData.data.results[0].urls[0];
+  var ourWiki = document.createElement("a");
+}
+
+// Display Name of Hero on Info Card
 function displayName(responseData) {
   var marvelName = responseData.data.results[0].name;
-  console.log(marvelName);
   heroName.innerHTML = marvelName;
 }
 
