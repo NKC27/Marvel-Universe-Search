@@ -7,7 +7,6 @@
   display: hide;
 }
 
-h3,
 h4,
 h5 {
   font-family: "marvel-font";
@@ -15,16 +14,35 @@ h5 {
   letter-spacing: 0.5px;
 }
 
+h3
+ {
+  font-family: "marvel-font";
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px white;
+}
+
 button {
   font-family: "marvel-font";
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-size: larger !important;
+  text-shadow: 1px 1px 2px black;
+
 }
 
 .red {
   background-color: #ed1d24 !important;
 }
+
+.black {
+  background-color: #222121 !important;
+}
+
+.red-text {
+  color: #ED1D24 !important;
+}
+
 
 .section-search input {
   padding: 5px !important;
@@ -32,6 +50,8 @@ button {
   width: 90% !important;
   border: #f6f6f6 3px solid !important;
   border-radius: 30px !important;
+  text-shadow: 1px 1px white;
+
 }
 
 .biography-card {
@@ -55,10 +75,12 @@ button {
   font-family: "marvel-font";
   letter-spacing: 1px;
   color: #ed1d24;
+  text-shadow: 1px 1px  black;
 }
 
 .brand-logo {
   font-family: "marvel-font";
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-shadow: 1px 1px  white;
 }
