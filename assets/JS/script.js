@@ -48,10 +48,11 @@ var APIkey = "444d6366dd602b2c74da79df008bd617";
 var characterSearched = document.querySelector(".hero-searched");
 var searchButton = document.querySelector(".btn");
 // Displaying hero name in the side information card.
-var heroName = document.getElementById("#hero-name");
+var heroName = document.getElementById("hero-name");
 var hideSection = document.querySelector(".hide");
 var infoSection = document.querySelector(".information-display");
 var sideCardContent = document.querySelector(".card-content");
+var ourImage = document.getElementById("marvel-img");
 
 // add text content to nothing to stop enter repeate pattern
 
@@ -78,20 +79,27 @@ function displayDescription(responseData) {
   // Create a variable for the information we want to use.
   var marvelDescr = responseData.data.results[0].description;
 
+  var marvelImage = responseData.data.results[0].thumbnail.path;
+
   // Amend this to a paragraph that we want to display to the user.
   console.log(marvelDescr);
   var ourDescription = document.createElement("p");
   ourDescription.textContent = marvelDescr;
 
+  var img = document.createElement("img");
+  img.setAttribute("src", marvelImage + ".jpg");
+
   //Append
   sideCardContent.appendChild(ourDescription);
+  ourImage.append(img);
+
   // Set Attributes for paragraph here ourDescription.setAttributes(djhbajdak)
 }
 
 function displayName(responseData) {
   var marvelName = responseData.data.results[0].name;
   console.log(marvelName);
-  heroName.textContent = marvelName;
+  heroName.innerHTML = marvelName;
 }
 
 // This function will get the value of the users search
