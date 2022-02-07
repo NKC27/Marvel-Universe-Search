@@ -2,6 +2,10 @@
   font-family: marvel-font;
   src: url("../fonts/marvel-font.otf");
 }
+/* Display Information cards as hide, until removed */
+.hide {
+  display: hide;
+}
 
 h3,
 h4,

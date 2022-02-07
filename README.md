@@ -108,6 +108,8 @@ Grid [layoutt](https://grid.layoutit.com/)
 
 CSS Grid [Generator](https://cssgrid-generator.netlify.app/0)
 
+[WordPress](https://buteauapi.wordpress.com/adding-a-picture/) Marvel API Guide
+
 ---
 
 Copyright © [2021] [Alia Haven, Nick Clarke & Yasmin.B.A]
