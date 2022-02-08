@@ -33,7 +33,6 @@ button {
   background-color: #ed1d24 !important;
 }
 
-
 .red-text {
   color: #ed1d24 !important;
 }
@@ -76,4 +75,8 @@ button {
   text-transform: uppercase;
   letter-spacing: 1px;
   text-shadow: 1px 1px white;
+}
+
+.link-color {
+  color: #ed1d24 !important;
 }

@@ -1,158 +1,184 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-     <!-- styles.css link local file -->
-     <link rel="stylesheet" href="assets/CSS/styles.css">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- styles.css link local file -->
+    <link rel="stylesheet" href="assets/CSS/styles.css" />
     <!-- Font Awesome link-->
     <script src="https://use.fontawesome.com/def84262de.js"></script>
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marvel Universe</title>
   </head>
 
   <body id="home" class="scrollspy">
-      <!-- Navbar added -->
-      <div class="navbar">
-        <nav class="black">
-            <div class="container">
-                <div class="nav-wrapper">
-                    <a class="brand-logo red-text center">Search <img src="./assets/Images/Marvel_Comics.jpg"
-                      style="height:30px;"> Universe</a>
-                </div>
-            </div>
-        </nav>
-     </div>
-  
+    <!-- Navbar added -->
+    <div class="navbar">
+      <nav class="black">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a class="brand-logo red-text center"
+              >Search
+              <img
+                src="./assets/Images/Marvel_Comics.jpg"
+                style="height: 30px"
+              />
+              Universe</a
+            >
+          </div>
+        </div>
+      </nav>
+    </div>
+
     <!-- Section Slider -->
     <section class="slider height">
       <div class="slider">
-          <ul class="slides">
-            <li>
-              <img src="assets/Images/Marvel Banner.jpg"> <!-- random image -->
-              <div class="caption center-align">
-                <!-- <h3>Welcome to the Marvel Universe search</h3>
+        <ul class="slides">
+          <li>
+            <img src="assets/Images/Marvel Banner.jpg" />
+            <!-- random image -->
+            <div class="caption center-align">
+              <!-- <h3>Welcome to the Marvel Universe search</h3>
                 <h5 class="light grey-text text-lighten-3 hide-on-small-only">Here's our small slogan.</h5> -->
-              </div>
-            </li>
-  
-          </ul>
-        </div>
-    </section>
-  
-  <!-- Section Search -->
-  <section id="idsearch" class="section section-search black red-text center scrollspy">
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
-                <h3>SEARCH THE UNIVERSE</h3>
-                <div class="input-field">
-                    <input type="text" class="white grey-text autocomplete hero-searched" id="autocomplete-input" placeholder="Hero name...">
-                    <button class="btn waves-effect waves-light red darken-4" type="submit" name="action" id="currentCharacter">Search
-                        <i class="material-icons right">search</i>
-                      </button>
-                </div>
-            </div>    
-        </div>
-    </div>
-  </section>
-
-<!-- Grid Layout here -->
-<div class="container">
-<div class="row information-display hide">
-
-  <div class="col s6 m6">
-
-    <!-- Section Character Summary Card -->
-    
-    <div class="row">
-     <div class="biography-card">
-      <div class="col m6 s6">
-        <div class="card white">
-          <div class="card-content black-text">
-            <span class="card-title">CHARACTER SUMMARY</span>
-          </div>  
-          <div class="card-action">
-            <a href="#">This is a link</a>
-        </div>
-      </div>
-      </div>
-      </div>
-      
-    </div>
-  </div>
-    
- 
-
-    <div class="col s6">
-    
-    <!-- Section Stats Card  -->
-
-    <div class="row">
-      <div id="stats-card">
-        <!-- s means take whole row. Change the rows and move both into 1 row.-->
-      <div class="col s6 m6 ">
-        
-        <div class="card">
-          <!-- Image Card -->
-          <div class="card-image" id="marvel-img">
-           <!-- <img src="assets/Images/1225805.jpg" class="circle responsive-img">-->
-          </div>
-          <!-- Information Card Below Image -->
-          <div class="card-content">
-            <h5 id="hero-name"></h5>
-            <!-- Populate list of Character information here -->
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-    </div>
-
-  <!-- Closing Div to section-->
-  </div>
-
-  <!-- Popular searches  -->
-
-  <section id="popular" class="section section-popular scrollspy">
-    <div class="container">
-        <div class="row">
-            <h4 class="center red-text">Popular Searches</h4>
-            <div class="col s12 m4">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="" alt="">
-                        <span class="card-title"></span>
-                    </div>
-                    <div class="card-content">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit pariatur, corporis consectetur est necessitatibus facere.
-                    </div>
-                </div>
             </div>
+          </li>
+        </ul>
+      </div>
+    </section>
 
+    <!-- Section Search -->
+    <section
+      id="idsearch"
+      class="section section-search black red-text center scrollspy"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col s12">
+            <h3>SEARCH THE UNIVERSE</h3>
+            <div class="input-field">
+              <input
+                type="text"
+                class="white grey-text autocomplete hero-searched"
+                id="autocomplete-input"
+                placeholder="Hero name..."
+              />
+              <button
+                class="btn waves-effect waves-light red darken-4"
+                type="submit"
+                name="action"
+                id="currentCharacter"
+              >
+                Search
+                <i class="material-icons right">search</i>
+              </button>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- Footer -->
-<footer class="page-footer red darken-4">
-  <div class="container">
-    <div class="row">
-      <h5 class="white-text center">Search Marvel Universe</h5>
-      <p class="grey-text text-lighten-4 center">Built for the fans of the Marvel Comics </p>
+    <!-- Grid Layout here -->
+    <div class="container">
+      <div class="row information-display hide">
+        <div class="col s6 m6">
+          <!-- Section Character Summary Card -->
+
+          <div class="row">
+            <div class="biography-card">
+              <div class="col m6 s6">
+                <div class="card white">
+                  <div class="card-content black-text">
+                    <span class="card-title">CHARACTER SUMMARY</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s6">
+          <!-- Section Stats Card  -->
+
+          <div class="row">
+            <div id="stats-card">
+              <!-- s means take whole row. Change the rows and move both into 1 row.-->
+              <div class="col s6 m6">
+                <div class="card">
+                  <!-- Image Card -->
+                  <div class="card-image" id="marvel-img">
+                    <!-- <img src="assets/Images/1225805.jpg" class="circle responsive-img">-->
+                  </div>
+                  <!-- Information Card Below Image -->
+                  <div class="card-content">
+                    <h5 id="hero-name"></h5>
+                    <p>For more Information:</p>
+                    <!-- Populate list of Character information here -->
+                  </div>
+                  <div class="card-action">
+                    <a class="link-color" href="#">Wikipedia</a>
+                  </div>
+                  <div class="card-action">
+                    <a class="link-color" href="#">Comic Link</a>
+                  </div>
+                  <div class="card-action">
+                    <a class="link-color" href="#">Marvel Comics</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Closing Div to section-->
     </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container center">
-      © 2021 Alia Yasmin Nick
-    </div>
-  </div>
-</footer>
+
+    <!-- Popular searches  -->
+
+    <section id="popular" class="section section-popular scrollspy">
+      <div class="container">
+        <div class="row">
+          <h4 class="center red-text">Popular Searches</h4>
+          <div class="col s12 m4">
+            <div class="card">
+              <div class="card-image">
+                <img src="" alt="" />
+                <span class="card-title"></span>
+              </div>
+              <div class="card-content">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Impedit pariatur, corporis consectetur est necessitatibus
+                facere.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer red darken-4">
+      <div class="container">
+        <div class="row">
+          <h5 class="white-text center">Search Marvel Universe</h5>
+          <p class="grey-text text-lighten-4 center">
+            Built for the fans of the Marvel Comics
+          </p>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container center">© 2021 Alia Yasmin Nick</div>
+      </div>
+    </footer>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
