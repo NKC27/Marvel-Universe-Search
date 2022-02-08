@@ -43,6 +43,7 @@ M.Autocomplete.init(autoComplete, {
 
 // API key for marvel
 var APIkey = "444d6366dd602b2c74da79df008bd617";
+// var OMDBKey = "c1cb5517";
 
 // Change to id characterSearched
 var characterSearched = document.querySelector(".hero-searched");
@@ -97,7 +98,22 @@ function displayLinks(responseData) {
   var wikiLink = responseData.data.results[0].urls[0];
   var ourWiki = document.createElement("a");
 }
+// -------------------Unfinished OMDB Function---------------------
+function getMovieInfo () {
+  
+  var URLdb = "https://omdbapi.com/?s=hulk&page=1&apikey=c1cb5517"; 
+  return fetch(URLdb).then (function(res){
+    return res.json()
+    // .then(function(responseData)
+      console.log(res);
+  })
+}
+getMovieInfo();
 
+// function getPoster () {
+//   var URLposter = "http://img.omdbapi.com/?apikey=" + OMDBKey; 
+// }
+// --------------------------------------------------------------
 // This function will get the value of the users search
 function getUserSearch() {
   // If the user entered a value..
