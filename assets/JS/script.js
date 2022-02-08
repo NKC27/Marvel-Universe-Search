@@ -53,6 +53,7 @@ var hideSection = document.querySelector(".hide");
 var infoSection = document.querySelector(".information-display");
 var sideCardContent = document.querySelector(".card-content");
 var ourImage = document.getElementById("marvel-img");
+var ourDescription = document.getElementById("our-description");
 
 // add text content to nothing to stop enter repeate pattern
 
@@ -68,7 +69,7 @@ function getCharacterInfo() {
     return res.json();
   });
 }
-
+var ourImg = document.getElementById("marvel-img");
 // Populate Description & Image using this function
 function displayDescription(responseData) {
   // Remove 'Hide' Attribute
@@ -77,33 +78,24 @@ function displayDescription(responseData) {
   infoSection.classList.remove("hide");
 
   // Create a variable for the information we want to use.
+  //debugger;
   var marvelDescr = responseData.data.results[0].description;
-  var marvelImage = responseData.data.results[0].thumbnail.path;
-
-  // Amend this to a paragraph that we want to display to the user.
-  var ourDescription = document.createElement("p");
   ourDescription.textContent = marvelDescr;
 
-  var img = document.createElement("img");
-  img.setAttribute("src", marvelImage + ".jpg");
-
-  //Append
-  sideCardContent.appendChild(ourDescription);
-  ourImage.append(img);
-
-  // Set Attributes for paragraph here ourDescription.setAttributes(djhbajdak)
-}
-
-// UNFINISHED LINKS FUNCTION
-function displayLinks(responseData) {
-  var wikiLink = responseData.data.results[0].urls[0];
-  var ourWiki = document.createElement("a");
+  var marvelImage = responseData.data.results[0].thumbnail.path;
+  ourImg.setAttribute("src", marvelImage + ".jpg");
 }
 
 // Display Name of Hero on Info Card
 function displayName(responseData) {
   var marvelName = responseData.data.results[0].name;
   heroName.innerHTML = marvelName;
+}
+
+// UNFINISHED LINKS FUNCTION
+function displayLinks(responseData) {
+  var wikiLink = responseData.data.results[0].urls[0];
+  var ourWiki = document.createElement("a");
 }
 
 // This function will get the value of the users search
