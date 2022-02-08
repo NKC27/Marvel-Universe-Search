@@ -80,3 +80,7 @@ button {
 .link-color {
   color: #ed1d24 !important;
 }
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #ed1d24 !important;
+}
