@@ -104,7 +104,11 @@ function displayLinks(responseData) {
 
 // -------------------Unfinished OMDB Function---------------------
 function getMovieInfo() {
-  fetch("https://omdbapi.com/?s=hulk&page=1&apikey=c1cb5517")
+  fetch(
+    "https://omdbapi.com/?s=" +
+      characterSearched.value +
+      "&page=1&apikey=c1cb5517"
+  )
     .then(function (response) {
       // The API call was successful!
       return response.json();
@@ -114,7 +118,6 @@ function getMovieInfo() {
       console.log(data);
     });
 }
-getMovieInfo();
 
 // This function will get the value of the users search
 function getUserSearch() {
@@ -128,6 +131,8 @@ function getUserSearch() {
       displayDescription(data);
       displayName(data);
     });
+
+    getMovieInfo();
   } else {
     // If the user clicks search without entering a value, they will get an alert.
     // Change this to a materialize alert!
