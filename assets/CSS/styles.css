@@ -81,6 +81,13 @@ button {
   color: #ed1d24 !important;
 }
 
-.dropdown-content li>a, .dropdown-content li>span {
+.dropdown-content li > a,
+.dropdown-content li > span {
   color: #ed1d24 !important;
+}
+
+.popular-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: larger;
 }
