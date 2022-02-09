@@ -56,6 +56,7 @@ var sideCardContent = document.querySelector(".card-content");
 var ourImage = document.getElementById("marvel-img");
 var ourDescription = document.getElementById("our-description");
 var wikiLinkEl = document.getElementById("wiki-link");
+var ourImg = document.getElementById("marvel-img");
 
 // add text content to nothing to stop enter repeate pattern
 
@@ -71,7 +72,7 @@ function getCharacterInfo() {
     return res.json();
   });
 }
-var ourImg = document.getElementById("marvel-img");
+
 // Populate Description & Image using this function
 function displayDescription(responseData) {
   // Remove 'Hide' Attribute
@@ -115,10 +116,6 @@ function getMovieInfo() {
 }
 getMovieInfo();
 
-// function getPoster () {
-//   var URLposter = "http://img.omdbapi.com/?apikey=" + OMDBKey;
-// }
-// --------------------------------------------------------------
 // This function will get the value of the users search
 function getUserSearch() {
   // If the user entered a value..
