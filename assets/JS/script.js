@@ -103,12 +103,15 @@ function displayLinks(responseData) {
 
 // -------------------Unfinished OMDB Function---------------------
 function getMovieInfo() {
-  var URLdb = "https://omdbapi.com/?s=hulk&page=1&apikey=c1cb5517";
-  return fetch(URLdb).then(function (res) {
-    return res.json();
-    // .then(function(responseData)
-    console.log(res);
-  });
+  fetch("https://omdbapi.com/?s=hulk&page=1&apikey=c1cb5517")
+    .then(function (response) {
+      // The API call was successful!
+      return response.json();
+    })
+    .then(function (data) {
+      // This is the JSON from our response
+      console.log(data);
+    });
 }
 getMovieInfo();
 
