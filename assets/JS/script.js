@@ -102,7 +102,7 @@ function displayLinks(responseData) {
   console.log(wikiLink);
 }
 
-// -------------------Unfinished OMDB Function---------------------
+// OMDb Fetch Function
 function getMovieInfo() {
   fetch(
     "https://omdbapi.com/?s=" +
@@ -131,6 +131,8 @@ function getUserSearch() {
       displayDescription(data);
       displayName(data);
     });
+
+    // Run the function to request OMDb info VIA User Search
 
     getMovieInfo();
   } else {
