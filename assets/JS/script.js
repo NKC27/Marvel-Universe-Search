@@ -84,13 +84,24 @@ function getCharacterInfo() {
 
 // Populate Description & Image using this function
 function displayDescription(responseData) {
+  // If API does not return any information on a given character
+  if (responseData.data.results.length === 0) {
+    M.toast({
+      html:
+        "Unfortunatley, We do not have any information on this character!" +
+        `<i class="material-icons">flag</i>`,
+      classes: "rounded red",
+    });
+    return;
+  }
+
   var marvelDescr = responseData.data.results[0].description;
   var marvelImage = responseData.data.results[0].thumbnail.path;
 
-  if (!marvelDescr || !marvelImage) {
+  if (!marvelDescr || !marvelImage || responseData.data.count.length === 0) {
     M.toast({
       html:
-        " Unfortunatley, We do not have information on this character!" +
+        " Unfortunatley, We do not have enough information on this character!" +
         `<i class="material-icons">flag</i>`,
       classes: "rounded red",
     });
@@ -142,7 +153,7 @@ function getMovieInfo() {
         var movieTitle = data.Search[i].Title;
         var movieYear = data.Search[i].Year;
         var moviePoster = data.Search[i].Poster;
-        console.log(Movie);
+        //console.log(Movie);
       }
     });
 }
@@ -151,6 +162,7 @@ function getMovieInfo() {
 // 1 console.log in this function
 function getUserSearch() {
   // If the user entered a value..
+
   if (characterSearched.value) {
     // Proceed with this function.
     getCharacterInfo().then(function (data) {
