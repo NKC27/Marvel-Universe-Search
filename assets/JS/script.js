@@ -17,7 +17,6 @@ var heroName = document.getElementById("hero-name");
 var ourDescription = document.getElementById("our-description");
 var ourImg = document.getElementById("marvel-img");
 
-// get previous searchs OR create empty array for the new searchs
 // Local Storage Function to keep previously searched data on page
 var previousSearchs = JSON.parse(localStorage.getItem("heroes-searched")) || [];
 
@@ -94,11 +93,14 @@ function displayDescription(responseData) {
     return;
   }
 
+  // Variables for the data needed from api fetch
   var marvelDescr = responseData.data.results[0].description;
   var marvelImage = responseData.data.results[0].thumbnail.path;
   var marvelName = responseData.data.results[0].name;
 
+  // If the description, Image or there is no result for that search...
   if (!marvelDescr || !marvelImage || responseData.data.count.length === 0) {
+    // THEN display this alert message.
     M.toast({
       html:
         " Unfortunatley, We do not have enough information on this character!" +
@@ -106,61 +108,56 @@ function displayDescription(responseData) {
       classes: "rounded red",
     });
   } else {
-    // Remove 'Hide' Attribute
-    // 'classList' is a property of JavaScript and using .remove will allow us to
-    // remove 'hide' specifically and allow the use to see that section of code.
-
+    // Add these cards using materialize code, to our HTML to display the correct information
     var summaryArea = document.querySelector(".character-summary-container");
     // Setting the information from the data to index.html elements
+    // This will populate a card that displays the description of the character searched, using the marvel api.
     summaryArea.innerHTML = `
       <div class="row information-display">
-     
-          <!-- Section Character Summary Card -->
           <div class="row">
             <div class="biography-card">
               <div class="col m6 s6">
                 <div class="card white">
                   <div class="card-content black-text">
                     <span class="card-title">CHARACTER SUMMARY</span>
-                    <!-- Empty p Tag for Character Description from Marvel API -->
                     <p id="our-description">${marvelDescr}</p>
                   </div>
                 </div>
-              
+              </div>
             </div>
-          </div>`;
+          </div>
+      </div> `;
 
     var statsArea = document.querySelector(".character-stats-container");
 
+    // This will populate the side card and display the image and name using the marvel api
     statsArea.innerHTML = `   
             <div id="stats-card">
-            
                 <div class="card">
-                  <!-- Image Card -->
-                  <!-- Empty Img Tag for img from marvel API to populate here -->
                   <div class="card-image">
                     <img id="marvel-img" src="${marvelImage}.jpg" />
                   </div>
-                  <!-- Information Card Below Image -->
+            
                   <div class="card-content">
                     <h5 id="hero-name">${marvelName}</h5>
                     <p>For more Information:</p>
-                    <!-- Populate list of Character information here -->
                   </div>
-                  <!-- Empty Links will have a path after the api marvel function is ran -->
+
+                  
                   <div class="card-action">
                     <a id="wiki-link" class="link-color">Wikipedia</a>
                   </div>
+
                   <div class="card-action">
                     <a id="comic-link" class="link-color">Comic Link</a>
                   </div>
+
                   <div class="card-action">
                     <a id="marvel-comics" class="link-color">Marvel Comics</a>
                   </div>
+
                 </div>
-           
-         
-          </div>`;
+            </div>`;
   }
 }
 
@@ -171,6 +168,7 @@ function displayLinks(responseData) {
   var comicLinkEl = document.getElementById("comic-link");
   var marvelComicsEl = document.getElementById("marvel-comics");
 
+  // Display marvel information in the elements
   var wikiLink = responseData.data.results[0].urls[1].url;
   wikiLinkEl.setAttribute("href", wikiLink);
   var comicLink = responseData.data.results[0].urls[2].url;
@@ -178,9 +176,11 @@ function displayLinks(responseData) {
   var marvelLink = responseData.data.results[0].urls[0].url;
   marvelComicsEl.setAttribute("href", marvelLink);
 }
-// OMDb Fetch Function
-// 2 console.logs in this function
+
+// OMDb Fetch information for movies Function
+// This function also renders and displays all the movie cards
 function getMovieInfo(heroSearched) {
+  // Fetch from OMDb
   fetch("https://omdbapi.com/?s=" + heroSearched + "&page=1&apikey=c1cb5517")
     .then(function (response) {
       return response.json();
@@ -194,51 +194,62 @@ function getMovieInfo(heroSearched) {
       for (var i = 0; i < data.Search.length; i++) {
         var Movie = data.Search[i];
 
+        // OMDb content Variables
         var movieTitle = Movie.Title;
         var movieYear = Movie.Year;
         var moviePoster = Movie.Poster;
 
         var newMovieHTML = document.createElement("div");
-        newMovieHTML.setAttribute("class", "col s5 m5");
+        newMovieHTML.setAttribute("class", "col s5 m3");
 
-        newMovieHTML.innerHTML = ` <div class="card">
-        <div class="card-image">
-          <img src="${moviePoster}.jpg">
-        </div>
-        <div class="card-action popular-title">
+        // If the poster is unavailable, then remove the image section and display only the name.
+        if (!moviePoster || moviePoster === "N/A") {
+          newMovieHTML.innerHTML = ` <div class="card">
+          <div class="card-action popular-title">
                   <div>${movieTitle} - ${movieYear}</div>
                 </div>
-        </div>`;
-
+          </div>`;
+        } else {
+          // If the poster is available, then add this information to index.html
+          newMovieHTML.innerHTML = ` <div class="card">
+          <div class="card-image">
+          <img src="${moviePoster}.jpg">
+          </div>
+          <div class="card-action popular-title">
+                  <div>${movieTitle} - ${movieYear}</div>
+                </div>
+          </div>`;
+        }
+        // Append information to the html
         moviesHTML.appendChild(newMovieHTML);
       }
     });
 }
 
-// This function will get the value of the users search
-// 1 console.log in this function
+// This function will check if the user has entered a value into the search field
+// And checks if local storage has previous searches logged to reload.
 function getUserSearch() {
-  // If the user entered a value..
   var heroSearched = characterSearched.value;
+  // If the user entered a value..
   if (heroSearched) {
     // Proceed with this function.
     getCharacterInfo(heroSearched).then(function (data) {
-      console.log(data);
-
       // Run these other functions to display information for the characters.
-
       displayDescription(data);
       displayLinks(data);
     });
-
     // Run the function to request OMDb info VIA User Search
     getMovieInfo(heroSearched);
-    //Check if the new search already exists in local storage
+
+    // Local Storage
+    // When you search a character,
+    // This will store that information in local storage.
     if (previousSearchs.indexOf(heroSearched) === -1) {
       previousSearchs.push(heroSearched);
       localStorage.setItem("heroes-searched", JSON.stringify(previousSearchs));
     }
   } else {
+    // If the user hasn't entered a value, then...
     // Added Materialize Alert pop-up with an icon
     M.toast({
       html:
@@ -249,6 +260,8 @@ function getUserSearch() {
   }
 }
 
+// Local Storage
+// If there ARE previous searches, Load that search when the page is opened.
 function onPageLoad() {
   if (previousSearchs.length > 0) {
     getCharacterInfo(previousSearchs[previousSearchs.length - 1]).then(
@@ -265,9 +278,6 @@ function onPageLoad() {
   }
 }
 
-// console.log's 4
 // The 'search' Button is waiting for a 'click' to fun getUserSearch
-
 searchButton.addEventListener("click", getUserSearch);
-
 onPageLoad();
