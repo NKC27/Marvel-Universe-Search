@@ -123,6 +123,16 @@ function getMovieInfo() {
     .then(function (data) {
       // This is the JSON from our response
       console.log(data);
+      // var movieTitle = data.Search[i].Title;
+      // var movieYear = data.Search[i].Year;
+      // var moviePoster = data.Search[i].Poster;
+      for (i = 0; i < data.Search.length; i++) {
+        var Movie = data.Search[i];
+        var movieTitle = data.Search[i].Title;
+        var movieYear = data.Search[i].Year;
+        var moviePoster = data.Search[i].Poster;
+        console.log(Movie);
+      }
     });
 }
 
