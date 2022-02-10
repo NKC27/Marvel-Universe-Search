@@ -15,29 +15,29 @@ M.Slider.init(slider, {
 var autoComplete = document.querySelector(".autocomplete");
 M.Autocomplete.init(autoComplete, {
   data: {
-    "Avengers": null,
+    Avengers: null,
     "Spider Man": null,
     "Iron man": null,
     "Black Panther": null,
-    "Deadpool": null,
+    Deadpool: null,
     "Captain America": null,
     "Ant-Man": null,
     "Captain Marvel": null,
     "Guardians Of The Galaxy": null,
-    "Wolverine": null,
-    "Hulk": null,
-    "Thor": null,
-    "Drax": null,
-    "Groot": null,
-    "Celestials": null,
-    "Eternals": null,
-    "Thanos": null,
+    Wolverine: null,
+    Hulk: null,
+    Thor: null,
+    Drax: null,
+    Groot: null,
+    Celestials: null,
+    Eternals: null,
+    Thanos: null,
     "Doctor Strange": null,
-    "Galactus": null,
+    Galactus: null,
     "Silver Surfer": null,
-    "Loki": null,
-    "Roket": null,
-    "Loki": null,
+    Loki: null,
+    Roket: null,
+    Loki: null,
   },
 });
 
@@ -55,6 +55,8 @@ var infoSection = document.querySelector(".information-display");
 var sideCardContent = document.querySelector(".card-content");
 var ourImage = document.getElementById("marvel-img");
 var ourDescription = document.getElementById("our-description");
+var wikiLinkEl = document.getElementById("wiki-link");
+var ourImg = document.getElementById("marvel-img");
 
 // add text content to nothing to stop enter repeate pattern
 
@@ -70,7 +72,7 @@ function getCharacterInfo() {
     return res.json();
   });
 }
-var ourImg = document.getElementById("marvel-img");
+
 // Populate Description & Image using this function
 function displayDescription(responseData) {
   // Remove 'Hide' Attribute
@@ -85,35 +87,45 @@ function displayDescription(responseData) {
 
   var marvelImage = responseData.data.results[0].thumbnail.path;
   ourImg.setAttribute("src", marvelImage + ".jpg");
+
+  // If no description, display an error for no character search
 }
 
 // Display Name of Hero on Info Card
 function displayName(responseData) {
   var marvelName = responseData.data.results[0].name;
   heroName.innerHTML = marvelName;
+
+  //If no name, display an error.
 }
 
-// UNFINISHED LINKS FUNCTION
+// Display Links on Image Cards for heros
 function displayLinks(responseData) {
-  var wikiLink = responseData.data.results[0].urls[0];
-  var ourWiki = document.createElement("a");
+  var wikiLink = responseData.data.results[0].urls[1].url;
+  wikiLinkEl.setAttribute("href", wikiLink);
+  var comicLink = responseData.data.results[0].urls[2].url;
+  comicLinkEl.setAttribute("href", comicLink);
+  var marvelLink = responseData.data.results[0].urls[0].url;
+  marvelComicsEl.setAttribute("href", marvelLink);
 }
-// -------------------Unfinished OMDB Function---------------------
-function getMovieInfo () {
-  
-  var URLdb = "https://omdbapi.com/?s=hulk&page=1&apikey=c1cb5517"; 
-  return fetch(URLdb).then (function(res){
-    return res.json()
-    // .then(function(responseData)
-      console.log(res);
-  })
-}
-getMovieInfo();
 
-// function getPoster () {
-//   var URLposter = "http://img.omdbapi.com/?apikey=" + OMDBKey; 
-// }
-// --------------------------------------------------------------
+// OMDb Fetch Function
+function getMovieInfo() {
+  fetch(
+    "https://omdbapi.com/?s=" +
+      characterSearched.value +
+      "&page=1&apikey=c1cb5517"
+  )
+    .then(function (response) {
+      // The API call was successful!
+      return response.json();
+    })
+    .then(function (data) {
+      // This is the JSON from our response
+      console.log(data);
+    });
+}
+
 // This function will get the value of the users search
 function getUserSearch() {
   // If the user entered a value..
@@ -125,7 +137,12 @@ function getUserSearch() {
       // Run these other functions to display information for the characters.
       displayDescription(data);
       displayName(data);
+      displayLinks(data);
     });
+
+    // Run the function to request OMDb info VIA User Search
+
+    getMovieInfo();
   } else {
     // If the user clicks search without entering a value, they will get an alert.
     // Change this to a materialize alert!
