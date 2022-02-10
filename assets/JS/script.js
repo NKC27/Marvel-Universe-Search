@@ -84,17 +84,26 @@ function getCharacterInfo() {
 
 // Populate Description & Image using this function
 function displayDescription(responseData) {
-  // Remove 'Hide' Attribute
-  // 'classList' is a property of JavaScript and using .remove will allow us to
-  // remove 'hide' specifically and allow the use to see that section of code.
-  infoSection.classList.remove("hide");
-
-  // Setting the information from the data to index.html elements
   var marvelDescr = responseData.data.results[0].description;
-  ourDescription.textContent = marvelDescr;
-
   var marvelImage = responseData.data.results[0].thumbnail.path;
-  ourImg.setAttribute("src", marvelImage + ".jpg");
+
+  if (!marvelDescr || !marvelImage) {
+    M.toast({
+      html:
+        " Unfortunatley, We do not have information on this character!" +
+        `<i class="material-icons">flag</i>`,
+      classes: "rounded red",
+    });
+  } else {
+    // Remove 'Hide' Attribute
+    // 'classList' is a property of JavaScript and using .remove will allow us to
+    // remove 'hide' specifically and allow the use to see that section of code.
+    infoSection.classList.remove("hide");
+
+    // Setting the information from the data to index.html elements
+    ourDescription.textContent = marvelDescr;
+    ourImg.setAttribute("src", marvelImage + ".jpg");
+  }
 }
 
 // Display Name of Hero on Info Card
