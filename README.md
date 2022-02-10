@@ -2,7 +2,7 @@
 
 ## Description
 
-Marvel Universe Search is a search engine, which provides a user with a variety of information surrounding character of their choice. Using the marvel font and traditional red and white theme, we want to create a website that would appeal to the super-hero fanbase that want to know a little more about their favourite characters. We have chosen to use [Tailwind](https://tailwindcss.com/docs/installation) as our CSS framework, which will allow us to create a clean, user-friendly database that will speed up our styling process.
+Marvel Universe Search is a search engine, which provides a user with a variety of information surrounding a character of their choice. Using the marvel font and traditional red and white theme, we want to create a website that would appeal to the super-hero fanbase that want to know a little more about their favourite characters. We have chosen to use [Materialize](https://materializecss.com/) as our CSS framework, which will allow us to create a clean, user-friendly database that will speed up our styling process.
 
 ---
 
@@ -21,19 +21,14 @@ AND any previous movies or series the character featured in
 ```
 WHEN I search for a character
 
-THEN I am presented with information about the character and all previous movies & series that character has been featured in.
+THEN I am presented with information about the character and previous movies that character has been featured in.
 
 
 
 WHEN I click refresh,
 
-THEN the information will persist on the page
+THEN the information will persist on the page.
 
-
-
-WHEN I click on a previously searched character in the dropdown menu
-
-THEN I am again presented with the information, movies and series on that character.
 ```
 
 ---
@@ -42,7 +37,7 @@ THEN I am again presented with the information, movies and series on that charac
 
 - [Marvel](https://developer.marvel.com/docs#!/public/getCharacterStoryCollection_get_5)
 
-- [IMDb](https://developer.imdb.com/)
+-[OMDb](http://www.omdbapi.com/)
 
 ## The Marvel API will provide us with the following information:
 
@@ -52,13 +47,13 @@ THEN I am again presented with the information, movies and series on that charac
 
 - Character Summary
 
-- Character Creator
+- A link for comics related to the Character
 
-- Comics related to the Character
+- A link to the Wikipedia for the Character
 
-- Comic Summary
+- A link to the marvel website for the Character
 
-## IMDb API will provide us with the following information:
+## OMDb API will provide us with the following information:
 
 - Movie Title related to the character
 
@@ -66,15 +61,7 @@ THEN I am again presented with the information, movies and series on that charac
 
 - Movie description
 
-- Movie ratings
-
-- Series related to character
-
-- Series Images related to character
-
-- Series description
-
-- Series rating
+- Movie Release Year
 
 ## Website:
 
@@ -84,31 +71,55 @@ THEN I am again presented with the information, movies and series on that charac
 
 ## Mock-Up
 
+This was our initial idea for the website.
+
 ![Mock-Up](https://github.com/NKC27/Marvel-Universe-Search/blob/a4906c5fe691e3de88d4d284917c43f0d9110bd7/assets/Images/Screenshot%202022-02-01%20at%2020.42.57.png)
 
 ---
 
 ## Resources:
 
-[Tailwind] (https://tailwindcss.com/docs/installation)
+[Materialize](https://materializecss.com/)
 
-[Marvel Docs] (https://developer.marvel.com/docs#!/public/getCharacterStoryCollection_get_5)
+[Marvel-Docs](https://developer.marvel.com/docs#!/public/getCharacterStoryCollection_get_5)
 
-[IMDb] (https://developer.imdb.com/)
+[IMDb](https://developer.imdb.com/)
 
-[Trello] (https://trello.com/en-GB) for project managing for our team
+[OMDb](http://www.omdbapi.com/)
 
-[Reference] (https://leagueoflegends.fandom.com/wiki/Gregor) for layout
+[Trello](https://trello.com/en-GB) for project managing for our team.
 
-[Tutorial] (https://www.pagecloud.com/blog/how-to-add-custom-fonts-to-any-website) for custom fonts
+[Reference](https://leagueoflegends.fandom.com/wiki/Gregor) for layout ideas.
 
-[DevResources] (https://devresourc.es/) have a list of public API’s
+[Tutorial](https://www.pagecloud.com/blog/how-to-add-custom-fonts-to-any-website) for custom fonts.
+
+[DevResources](https://devresourc.es/) have a list of public API’s.
 
 Grid [layoutt](https://grid.layoutit.com/)
 
 CSS Grid [Generator](https://cssgrid-generator.netlify.app/0)
 
-[WordPress](https://buteauapi.wordpress.com/adding-a-picture/) Marvel API Guide
+[WordPress](https://buteauapi.wordpress.com/adding-a-picture/) Marvel API Guide.
+
+[Youtube](https://www.youtube.com/watch?v=1VjdxCTBfUI) Movie Search Applications to give us inspiration and guide help.
+
+[StackOverflow](https://stackoverflow.com/questions/19573031/cant-push-to-github-because-of-large-file-which-i-already-deleted) to answer alot of our github problems.
+
+## Fixes & Bugs
+
+---
+
+### Bugs
+
+> There are currently no bugs for our website.
+
+### Fixes
+
+Movie Search:
+Currently, the API we are using does not allow for filtered movie search. When the user searches a movie, any movie related will come up. This is a problem as we are a marvel website and are currently trying to find a fix.
+
+Characters MIA:
+The other API we are using does not allow for certain information to be receieved. Whether that is the description or image of a character, some characters just do not have the full information needed for us to display them on our website. This is why an error may pop up when you attempt to search for a character. Sadly, this also includes popular characters. This is extremely frustrating and we are current working to find a new API to correct this problem.
 
 ---
 

@@ -17,33 +17,40 @@
     <script src="https://use.fontawesome.com/def84262de.js"></script>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;700&family=Raleway:wght@100;200;400;500&display=swap"
       rel="stylesheet"
     />
-    <title>Marvel Universe</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Marvel Universe | Marvel Character Search Database</title>
   </head>
 
   <body id="home" class="scrollspy">
-    <!-- Navbar added -->
-    <div class="navbar">
-      <nav class="black">
-        <div class="container">
-          <div class="nav-wrapper">
-            <a class="brand-logo red-text center"
-              >Search
-              <img
-                src="./assets/Images/Marvel_Comics.jpg"
-                style="height: 30px"
-              />
-              Universe</a
-            >
+    <!-- Header -->
+    <header>
+      <div class="navbar">
+        <nav class="black">
+          <div class="container">
+            <div class="nav-wrapper">
+              <a class="brand-logo red-text center"
+                >Search
+                <img
+                  src="./assets/Images/Marvel_Comics.jpg"
+                  style="height: 30px"
+                />
+                Universe</a
+              >
+            </div>
           </div>
-        </div>
-      </nav>
-    </div>
+        </nav>
+      </div>
+    </header>
 
     <!-- Section Slider -->
     <section class="slider height">
@@ -51,17 +58,12 @@
         <ul class="slides">
           <li>
             <img src="assets/Images/Marvel Banner.jpg" />
-            <!-- random image -->
-            <div class="caption center-align">
-              <!-- <h3>Welcome to the Marvel Universe search</h3>
-                <h5 class="light grey-text text-lighten-3 hide-on-small-only">Here's our small slogan.</h5> -->
-            </div>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- Section Search -->
+    <!-- Search Bar Section -->
     <section
       id="idsearch"
       class="section section-search black red-text center scrollspy"
@@ -93,62 +95,14 @@
     </section>
 
     <!-- Grid Layout here -->
-    <div class="container">
-      <div class="row information-display hide">
-        <div class="col s6 m6">
-          <!-- Section Character Summary Card -->
+    <div class="row">
+      <div class="character-summary-container col s6 m6"></div>
 
-          <div class="row">
-            <div class="biography-card">
-              <div class="col m6 s6">
-                <div class="card white">
-                  <div class="card-content black-text">
-                    <span class="card-title">CHARACTER SUMMARY</span>
-                    <p id="our-description"></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col s6">
-          <!-- Section Stats Card  -->
-
-          <div class="row">
-            <div id="stats-card">
-              <!-- s means take whole row. Change the rows and move both into 1 row.-->
-              <div class="col s6 m6">
-                <div class="card">
-                  <!-- Image Card -->
-                  <div class="card-image">
-                    <img id="marvel-img" />
-                    <!-- <img src="assets/Images/1225805.jpg" class="circle responsive-img">-->
-                  </div>
-                  <!-- Information Card Below Image -->
-                  <div class="card-content">
-                    <h5 id="hero-name"></h5>
-                    <p>For more Information:</p>
-                    <!-- Populate list of Character information here -->
-                  </div>
-                  <div class="card-action">
-                    <a id="wiki-link" class="link-color">Wikipedia</a>
-                  </div>
-                  <div class="card-action">
-                    <a id="comic-link" class="link-color">Comic Link</a>
-                  </div>
-                  <div class="card-action">
-                    <a id="marvel-comics" class="link-color">Marvel Comics</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Closing Div to section-->
+      <!-- Section Stats Card  -->
+      <div class="character-stats-container col s6 m6"></div>
     </div>
+
+    <!-- Closing Div to section-->
 
     <!-- Popular searches  -->
 
@@ -156,9 +110,10 @@
       <div class="container">
         <div class="row">
           <h4 class="center red-text">Popular Searches</h4>
-          <!-- First Card -->
+          <!-- First Row -->
           <div class="row">
-            <div class="col s12 m7">
+            <!-- First Card -->
+            <div class="col s10 m4">
               <div class="card">
                 <div class="card-image">
                   <img src="./assets/Images/Black Panther.jpg" />
@@ -184,11 +139,8 @@
                 </div>
               </div>
             </div>
-          </div>
-          <!-- Second Card -->
-
-          <div class="row">
-            <div class="col s12 m7">
+            <!-- Second Card -->
+            <div class="col s10 m4">
               <div class="card">
                 <div class="card-image">
                   <img src="./assets/Images/Avengers-Endgame.jpeg" />
@@ -217,12 +169,8 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Third Card -->
-
-          <div class="row">
-            <div class="col s12 m7">
+            <!-- Third Card -->
+            <div class="col s10 m4">
               <div class="card">
                 <div class="card-image">
                   <img src="./assets/Images/Eternals.jpg" />
@@ -250,11 +198,10 @@
               </div>
             </div>
           </div>
-
-          <!-- Fourth Card -->
-
+          <!-- Second Row -->
           <div class="row">
-            <div class="col s12 m7">
+            <!-- First Card 2nd Row -->
+            <div class="col s10 m6">
               <div class="card">
                 <div class="card-image">
                   <img src="./assets/Images/spider_man_no_way_home.jpeg" />
@@ -281,12 +228,8 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Fifth Card -->
-
-          <div class="row">
-            <div class="col s12 m7">
+            <!-- Second Card 2nd Row -->
+            <div class="col s10 m6">
               <div class="card">
                 <div class="card-image">
                   <img src="./assets/Images/shang-chi.jpeg" />
