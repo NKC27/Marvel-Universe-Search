@@ -1,10 +1,14 @@
+/*Setting CSS Variables to make it easier to adjust shades*/
+:root {
+  --red: #ed1d24;
+  --dark: #000000;
+  --light: #ffffff;
+}
+
+/*FONT IMPORT*/
 @font-face {
   font-family: marvel-font;
   src: url("../fonts/marvel-font.otf");
-}
-/* Display Information cards as hide, until removed */
-.hide {
-  display: hide;
 }
 
 h4,
@@ -18,7 +22,7 @@ h3 {
   font-family: "marvel-font";
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  text-shadow: 1px 1px white;
+  text-shadow: 1px 1px var(--light);
 }
 
 button {
@@ -26,37 +30,35 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-size: larger !important;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 1px 1px 2px var(--dark);
+}
+
+/* Display Information cards as hide, until removed */
+.hide {
+  display: hide;
 }
 
 .red {
-  background-color: #ed1d24 !important;
+  background-color: var(--red) !important;
 }
 
 .red-text {
-  color: #ed1d24 !important;
+  color: var(--red) !important;
 }
 
 .section-search input {
   padding: 5px !important;
   font-size: 18px !important;
   width: 90% !important;
-  border: #f6f6f6 3px solid !important;
+  border: var(--light) 3px solid !important;
   border-radius: 30px !important;
-  text-shadow: 1px 1px white;
+  text-shadow: 1px 1px var(--light);
 }
 
 .biography-card {
   width: 300%;
   padding-right: 50%;
   margin-left: 20px;
-}
-
-#stats-card {
-  width: 100%;
-  padding-left: 25%;
-  margin-left: 20px;
-  content: align;
 }
 
 .center-block {
@@ -66,28 +68,34 @@ button {
 .card-title {
   font-family: "marvel-font";
   letter-spacing: 1px;
-  color: #ed1d24;
-  text-shadow: 1px 1px black;
+  color: var(--red);
+  text-shadow: 1px 1px var(--dark);
 }
 
 .brand-logo {
   font-family: "marvel-font";
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-shadow: 1px 1px white;
+  text-shadow: 1px 1px var(--light);
 }
 
 .link-color {
-  color: #ed1d24 !important;
+  color: var(--red) !important;
 }
 
 .dropdown-content li > a,
 .dropdown-content li > span {
-  color: #ed1d24 !important;
+  color: var(--red) !important;
 }
 
 .popular-title {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: larger;
+}
+
+#stats-card {
+  width: 100%;
+  padding-left: 25%;
+  margin-left: 20px;
 }
