@@ -57,6 +57,8 @@ var ourImage = document.getElementById("marvel-img");
 var ourDescription = document.getElementById("our-description");
 var wikiLinkEl = document.getElementById("wiki-link");
 var ourImg = document.getElementById("marvel-img");
+var comicLinkEl = document.getElementById("comic-link");
+var marvelComicsEl = document.getElementById("marvel-comics");
 
 // add text content to nothing to stop enter repeate pattern
 
