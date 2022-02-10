@@ -116,10 +116,15 @@ CSS Grid [Generator](https://cssgrid-generator.netlify.app/0)
 ### Fixes
 
 Movie Search:
-Currently, the API we are using does not allow for filtered movie search. When the user searches a movie, any movie related will come up. This is a problem as we are a marvel website and are currently trying to find a fix.
+Currently, the API we are using does not allow for filtered movie search. When the user searches a movie, any movie related will come up. This is a problem as we are a marvel website and are currently trying to find a fix this.
+
+Also, The movie search is currently not aligned. This is due to the API not providing the image data needed. Furthermore, the CSS framework we used, was extremely tempremental with resizing the 'cards' for the movies. Despite our best efforts, the layout was difficult to align in a more pleasing way. We are looking into alternatives for our future updates.
 
 Characters MIA:
 The other API we are using does not allow for certain information to be receieved. Whether that is the description or image of a character, some characters just do not have the full information needed for us to display them on our website. This is why an error may pop up when you attempt to search for a character. Sadly, this also includes popular characters. This is extremely frustrating and we are current working to find a new API to correct this problem.
+
+Comics:
+We were unable to display comics. We are trying to resolve this.
 
 ---
 
