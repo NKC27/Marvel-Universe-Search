@@ -156,9 +156,13 @@ function getUserSearch() {
     // Run the function to request OMDb info VIA User Search
     getMovieInfo();
   } else {
-    // If the user clicks search without entering a value, they will get an alert.
-    // Change this to a materialize alert!
-    alert("Please Type a Character Name!");
+    // Added Materialize Alert pop-up with an icon
+    M.toast({
+      html:
+        "  Please enter a Character Name!" +
+        `<i class="material-icons">flag</i>`,
+      classes: "rounded red",
+    });
   }
 }
 
