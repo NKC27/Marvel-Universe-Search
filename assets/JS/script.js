@@ -22,6 +22,10 @@ var wikiLinkEl = document.getElementById("wiki-link");
 var comicLinkEl = document.getElementById("comic-link");
 var marvelComicsEl = document.getElementById("marvel-comics");
 
+// get previous searchs OR create empty array for the new searchs
+// Local Storage Function to keep previously searched data on page
+var previousSearchs = JSON.parse(localStorage.getItem('heroes-searched')) || [];
+
 // Side Navbar code
 var sideNav = document.querySelector(".sidenav");
 M.Sidenav.init(sideNav, {});
@@ -70,10 +74,10 @@ M.Autocomplete.init(autoComplete, {
 });
 
 // Function to fetch character information from the marvel api
-function getCharacterInfo() {
+function getCharacterInfo(heroSearched) {
   var URLforCharacters =
     "https://gateway.marvel.com/v1/public/characters?name=" +
-    characterSearched.value +
+    heroSearched +
     "&apikey=" +
     APIkey;
 
@@ -182,10 +186,10 @@ function displayLinks(responseData) {
 
 // OMDb Fetch Function
 // 2 console.logs in this function
-function getMovieInfo() {
+function getMovieInfo(heroSearched) {
   fetch(
     "https://omdbapi.com/?s=" +
-      characterSearched.value +
+      heroSearched +
       "&page=1&apikey=c1cb5517"
   )
     .then(function (response) {
@@ -209,10 +213,10 @@ function getMovieInfo() {
 // 1 console.log in this function
 function getUserSearch() {
   // If the user entered a value..
-
-  if (characterSearched.value) {
+  var heroSearched = characterSearched.value; 
+  if (heroSearched) {
     // Proceed with this function.
-    getCharacterInfo().then(function (data) {
+    getCharacterInfo(heroSearched).then(function (data) {
       console.log(data);
 
       // Run these other functions to display information for the characters.
@@ -222,7 +226,13 @@ function getUserSearch() {
     });
 
     // Run the function to request OMDb info VIA User Search
-    getMovieInfo();
+    getMovieInfo(heroSearched);
+    //Check if the new search already exists in local storage
+    if (previousSearchs.indexOf(heroSearched) === -1){
+      previousSearchs.push(heroSearched);
+      localStorage.setItem('heroes-searched', JSON.stringify(previousSearchs))
+    }
+
   } else {
     // Added Materialize Alert pop-up with an icon
     M.toast({
@@ -236,3 +246,26 @@ function getUserSearch() {
 
 // The 'search' Button is waiting for a 'click' to fun getUserSearch
 searchButton.addEventListener("click", getUserSearch);
+console.log("previous", previousSearchs)
+if(previousSearchs.length > 0){
+  console.log("creating auto")
+  console.log(previousSearchs[-1])
+  getCharacterInfo(previousSearchs[previousSearchs.length - 1]).then(function (data) {
+    console.log(data);
+
+    // Run these other functions to display information for the characters.
+    displayDescription(data);
+    displayName(data);
+    displayLinks(data);
+  });
+
+  // Run the function to request OMDb info VIA User Search
+  getMovieInfo(previousSearchs[previousSearchs.length - 1]);
+}
+
+// searchButton.onclick = function () {
+// JSON.parse(localStorage.getItem(characterSearched))
+
+// }
+
+// window.onload = "previousSearch";
