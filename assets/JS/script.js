@@ -87,12 +87,16 @@ function displayDescription(responseData) {
 
   var marvelImage = responseData.data.results[0].thumbnail.path;
   ourImg.setAttribute("src", marvelImage + ".jpg");
+
+  // If no description, display an error for no character search
 }
 
 // Display Name of Hero on Info Card
 function displayName(responseData) {
   var marvelName = responseData.data.results[0].name;
   heroName.innerHTML = marvelName;
+
+  //If no name, display an error.
 }
 
 // Display Links on Image Cards for heros
