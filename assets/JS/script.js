@@ -17,11 +17,6 @@ var heroName = document.getElementById("hero-name");
 var ourDescription = document.getElementById("our-description");
 var ourImg = document.getElementById("marvel-img");
 
-// Side-Card Link Elements
-var wikiLinkEl = document.getElementById("wiki-link");
-var comicLinkEl = document.getElementById("comic-link");
-var marvelComicsEl = document.getElementById("marvel-comics");
-
 // get previous searchs OR create empty array for the new searchs
 // Local Storage Function to keep previously searched data on page
 var previousSearchs = JSON.parse(localStorage.getItem("heroes-searched")) || [];
@@ -101,6 +96,7 @@ function displayDescription(responseData) {
 
   var marvelDescr = responseData.data.results[0].description;
   var marvelImage = responseData.data.results[0].thumbnail.path;
+  var marvelName = responseData.data.results[0].name;
 
   if (!marvelDescr || !marvelImage || responseData.data.count.length === 0) {
     M.toast({
@@ -113,7 +109,7 @@ function displayDescription(responseData) {
     // Remove 'Hide' Attribute
     // 'classList' is a property of JavaScript and using .remove will allow us to
     // remove 'hide' specifically and allow the use to see that section of code.
-    // infoSection.classList.remove("hide");
+
     var summaryArea = document.querySelector(".character-summary-container");
     // Setting the information from the data to index.html elements
     summaryArea.innerHTML = `
@@ -130,7 +126,7 @@ function displayDescription(responseData) {
                     <p id="our-description">${marvelDescr}</p>
                   </div>
                 </div>
-        
+              
             </div>
           </div>`;
 
@@ -147,7 +143,7 @@ function displayDescription(responseData) {
                   </div>
                   <!-- Information Card Below Image -->
                   <div class="card-content">
-                    <h5 id="hero-name"></h5>
+                    <h5 id="hero-name">${marvelName}</h5>
                     <p>For more Information:</p>
                     <!-- Populate list of Character information here -->
                   </div>
@@ -168,14 +164,13 @@ function displayDescription(responseData) {
   }
 }
 
-// Display Name of Hero on Info Card
-function displayName(responseData) {
-  var marvelName = responseData.data.results[0].name;
-  heroName.innerHTML = marvelName;
-}
-
 // Display Links on Image Cards for characters
 function displayLinks(responseData) {
+  // Side-Card Link Elements
+  var wikiLinkEl = document.getElementById("wiki-link");
+  var comicLinkEl = document.getElementById("comic-link");
+  var marvelComicsEl = document.getElementById("marvel-comics");
+
   var wikiLink = responseData.data.results[0].urls[1].url;
   wikiLinkEl.setAttribute("href", wikiLink);
   var comicLink = responseData.data.results[0].urls[2].url;
@@ -183,7 +178,6 @@ function displayLinks(responseData) {
   var marvelLink = responseData.data.results[0].urls[0].url;
   marvelComicsEl.setAttribute("href", marvelLink);
 }
-
 // OMDb Fetch Function
 // 2 console.logs in this function
 function getMovieInfo(heroSearched) {
@@ -193,14 +187,30 @@ function getMovieInfo(heroSearched) {
     })
     .then(function (data) {
       // This is the JSON from our response
-      console.log(data);
+      var moviesHTML = document.querySelector(".movies-container");
+      moviesHTML.innerHTML = "";
+
       // For Each Movie in the array, create a card to display for the user.
-      for (i = 0; i < data.Search.length; i++) {
+      for (var i = 0; i < data.Search.length; i++) {
         var Movie = data.Search[i];
-        var movieTitle = data.Search[i].Title;
-        var movieYear = data.Search[i].Year;
-        var moviePoster = data.Search[i].Poster;
-        //console.log(Movie);
+
+        var movieTitle = Movie.Title;
+        var movieYear = Movie.Year;
+        var moviePoster = Movie.Poster;
+
+        var newMovieHTML = document.createElement("div");
+        newMovieHTML.setAttribute("class", "col s5 m5");
+
+        newMovieHTML.innerHTML = ` <div class="card">
+        <div class="card-image">
+          <img src="${moviePoster}.jpg">
+        </div>
+        <div class="card-action popular-title">
+                  <div>${movieTitle} - ${movieYear}</div>
+                </div>
+        </div>`;
+
+        moviesHTML.appendChild(newMovieHTML);
       }
     });
 }
@@ -216,8 +226,8 @@ function getUserSearch() {
       console.log(data);
 
       // Run these other functions to display information for the characters.
+
       displayDescription(data);
-      displayName(data);
       displayLinks(data);
     });
 
@@ -239,24 +249,25 @@ function getUserSearch() {
   }
 }
 
+function onPageLoad() {
+  if (previousSearchs.length > 0) {
+    getCharacterInfo(previousSearchs[previousSearchs.length - 1]).then(
+      function (data) {
+        // Run these other functions to display information for the characters.
+
+        displayDescription(data);
+        displayLinks(data);
+      }
+    );
+
+    // Run the function to request OMDb info VIA User Search
+    getMovieInfo(previousSearchs[previousSearchs.length - 1]);
+  }
+}
+
 // console.log's 4
 // The 'search' Button is waiting for a 'click' to fun getUserSearch
+
 searchButton.addEventListener("click", getUserSearch);
-console.log("previous", previousSearchs);
-if (previousSearchs.length > 0) {
-  console.log("creating auto");
-  console.log(previousSearchs[-1]);
-  getCharacterInfo(previousSearchs[previousSearchs.length - 1]).then(function (
-    data
-  ) {
-    console.log(data);
 
-    // Run these other functions to display information for the characters.
-    displayDescription(data);
-    displayName(data);
-    displayLinks(data);
-  });
-
-  // Run the function to request OMDb info VIA User Search
-  getMovieInfo(previousSearchs[previousSearchs.length - 1]);
-}
+onPageLoad();
