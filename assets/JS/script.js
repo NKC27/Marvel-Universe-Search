@@ -95,11 +95,14 @@ function displayName(responseData) {
   heroName.innerHTML = marvelName;
 }
 
-// UNFINISHED LINKS FUNCTION
+// Display Links on Image Cards for heros
 function displayLinks(responseData) {
   var wikiLink = responseData.data.results[0].urls[1].url;
   wikiLinkEl.setAttribute("href", wikiLink);
-  console.log(wikiLink);
+  var comicLink = responseData.data.results[0].urls[2].url;
+  comicLinkEl.setAttribute("href", comicLink);
+  var marvelLink = responseData.data.results[0].urls[0].url;
+  marvelComicsEl.setAttribute("href", marvelLink);
 }
 
 // OMDb Fetch Function
@@ -130,6 +133,7 @@ function getUserSearch() {
       // Run these other functions to display information for the characters.
       displayDescription(data);
       displayName(data);
+      displayLinks(data);
     });
 
     // Run the function to request OMDb info VIA User Search
