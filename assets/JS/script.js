@@ -109,11 +109,58 @@ function displayDescription(responseData) {
     // Remove 'Hide' Attribute
     // 'classList' is a property of JavaScript and using .remove will allow us to
     // remove 'hide' specifically and allow the use to see that section of code.
-    infoSection.classList.remove("hide");
-
+    // infoSection.classList.remove("hide");
+    var summaryArea = document.querySelector(".character-summary-container");
     // Setting the information from the data to index.html elements
-    ourDescription.textContent = marvelDescr;
-    ourImg.setAttribute("src", marvelImage + ".jpg");
+    summaryArea.innerHTML = `
+      <div class="row information-display">
+     
+          <!-- Section Character Summary Card -->
+          <div class="row">
+            <div class="biography-card">
+              <div class="col m6 s6">
+                <div class="card white">
+                  <div class="card-content black-text">
+                    <span class="card-title">CHARACTER SUMMARY</span>
+                    <!-- Empty p Tag for Character Description from Marvel API -->
+                    <p id="our-description">${marvelDescr}</p>
+                  </div>
+                </div>
+        
+            </div>
+          </div>`;
+
+    var statsArea = document.querySelector(".character-stats-container");
+
+    statsArea.innerHTML = `   
+            <div id="stats-card">
+            
+                <div class="card">
+                  <!-- Image Card -->
+                  <!-- Empty Img Tag for img from marvel API to populate here -->
+                  <div class="card-image">
+                    <img id="marvel-img" src="${marvelImage}.jpg" />
+                  </div>
+                  <!-- Information Card Below Image -->
+                  <div class="card-content">
+                    <h5 id="hero-name"></h5>
+                    <p>For more Information:</p>
+                    <!-- Populate list of Character information here -->
+                  </div>
+                  <!-- Empty Links will have a path after the api marvel function is ran -->
+                  <div class="card-action">
+                    <a id="wiki-link" class="link-color">Wikipedia</a>
+                  </div>
+                  <div class="card-action">
+                    <a id="comic-link" class="link-color">Comic Link</a>
+                  </div>
+                  <div class="card-action">
+                    <a id="marvel-comics" class="link-color">Marvel Comics</a>
+                  </div>
+                </div>
+           
+         
+          </div>`;
   }
 }
 
