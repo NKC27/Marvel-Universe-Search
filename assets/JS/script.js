@@ -190,6 +190,10 @@ function getMovieInfo(heroSearched) {
       var moviesHTML = document.querySelector(".movies-container");
       moviesHTML.innerHTML = "";
 
+      // The title will dynamically appear when the movies display
+      var featuredContent = document.getElementById("featured-content");
+      featuredContent.textContent = "Featured Content";
+
       // For Each Movie in the array, create a card to display for the user.
       for (var i = 0; i < data.Search.length; i++) {
         var Movie = data.Search[i];

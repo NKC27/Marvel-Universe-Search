@@ -26,9 +26,7 @@ h3 {
 }
 
 button {
-  font-family: "marvel-font";
   text-transform: uppercase;
-  letter-spacing: 0.5px;
   font-size: larger !important;
   text-shadow: 1px 1px 2px var(--dark);
 }
