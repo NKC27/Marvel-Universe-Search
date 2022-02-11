@@ -68,10 +68,10 @@ THEN the previously searched character's information will persist on the page
 [Search Marvel Universe](https://nkc27.github.io/Search-Marvel-Universe/)
 
 Here is our website before you enter a search:
-![Marvel-Website-Before-Search]()
+![Marvel-Website-Before-Search](https://github.com/NKC27/Search-Marvel-Universe/blob/d662dbc2a5deff6172a330e15bdcb51feb7da88f/assets/Images/before-search.png)
 
 Here is our website after you enter a search:
-![Marvel-Website-After-Search]()
+![Marvel-Website-After-Search](https://github.com/NKC27/Search-Marvel-Universe/blob/d662dbc2a5deff6172a330e15bdcb51feb7da88f/assets/Images/After%20Search.png)
 
 ---
 
