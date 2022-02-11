@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- styles.css link local file -->
-    <link rel="stylesheet" href="assets/CSS/styles.css" />
-
     <!--Import Google Icon Font-->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+
+    <!-- styles.css link local file -->
+    <link rel="stylesheet" href="assets/CSS/styles.css" />
+
     <!-- Compiled and minified CSS -->
     <link
       rel="stylesheet"
@@ -26,10 +27,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;700&family=Raleway:wght@100;200;400;500&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+
     <title>Marvel Universe | Marvel Character Search Database</title>
   </head>
 
@@ -54,7 +52,7 @@
       </div>
     </header>
 
-    <!-- Section Slider -->
+    <!-- Hero Image -->
     <section class="slider height">
       <div class="slider">
         <ul class="slides">
@@ -108,7 +106,8 @@
     </div>
 
     <!-- Section for where movies related to character will populate -->
-    <h4 class="center red-text">Featured Content</h4>
+    <!-- Adding this title dynamically through js -->
+    <h4 id="featured-content" class="center red-text"></h4>
 
     <div class="row">
       <!-- Movie's for Character Populate here -->
@@ -121,7 +120,7 @@
       <div class="container">
         <div class="row">
           <h4 class="center red-text">Popular Searches</h4>
-          <!-- First Row -->
+          <!-- Cards Appear Here -->
           <div class="row">
             <!-- First Card -->
             <div class="col s10 m4">
@@ -162,10 +161,9 @@
                 <hr />
                 <div class="card-content">
                   <p>
-                    The remaining Avengers - Thor, Black
-                    Widow, Captain America and Bruce Banner - must figure out a
-                    way to bring back their vanquished allies for an epic
-                    showdown with Thanos.
+                    The remaining Avengers - Thor, Black Widow, Captain America
+                    and Bruce Banner - must figure out a way to bring back their
+                    vanquished allies for an epic showdown with Thanos.
                   </p>
                 </div>
                 <div class="card-action">
@@ -189,10 +187,9 @@
                 <hr />
                 <div class="card-content">
                   <p>
-                    An
-                    unexpected tragedy forces the Eternals, aliens who
-                    have been living on Earth for thousands of years,
-                    out of the shadows to fight against mankind's enemy, the Deviants.
+                    An unexpected tragedy forces the Eternals, aliens who have
+                    been living on Earth for thousands of years, out of the
+                    shadows to fight against mankind's enemy, the Deviants.
                   </p>
                 </div>
                 <div class="card-action">
@@ -206,7 +203,6 @@
             </div>
           </div>
           <!-- CLOSING DIV-->
-
         </div>
       </div>
     </section>
